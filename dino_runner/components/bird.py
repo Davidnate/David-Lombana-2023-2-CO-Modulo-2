@@ -1,5 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
+from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS
 
 from dino_runner.utils.constants import BIRD
 
@@ -10,9 +11,12 @@ class Bird(Sprite):
         self.bird_rect = self.image.get_rect()
         self.bird_rect.x = 400
         self.bird_rect.y = 300
+        self.game_speed = 20
 
     def update(self):
-        pass
+        self.bird_rect.x -= self.game_speed
+        if self.bird_rect.x < -30:
+            self.bird_rect.x = SCREEN_WIDTH
 
     def run(self):
         pass
