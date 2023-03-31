@@ -15,7 +15,7 @@ class Bird(Sprite):
 
     def update(self):
         self.bird_rect.x -= self.game_speed
-        if self.bird_rect.x < -30:
+        if self.bird_rect.x < -600:
             self.bird_rect.x = SCREEN_WIDTH
 
     def run(self):
