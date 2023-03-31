@@ -11,7 +11,7 @@ class Bird(Sprite):
         self.bird_rect = self.image.get_rect()
         self.bird_rect.x = 400
         self.bird_rect.y = 300
-        self.game_speed = 20
+        self.game_speed =  10
 
     def update(self):
         self.bird_rect.x -= self.game_speed
