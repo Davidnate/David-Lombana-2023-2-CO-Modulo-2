@@ -23,6 +23,8 @@ class Game:
         self.death_count = 0
         self.score = 0
         self.best_score = 0
+        self.NEW_BG_COLOR = ((0, 0, 0))
+        
 
     def execute(self):
         self.running = True
@@ -69,6 +71,11 @@ class Game:
 
     def draw_background(self):
         image_width = BG.get_width()
+        if self.score >= 500:
+            self.screen.fill(self.NEW_BG_COLOR)
+        else:
+            self.screen.fill((255, 255, 255))
+
         self.screen.blit(BG, (self.x_pos_bg, self.y_pos_bg))
         self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
         if self.x_pos_bg <= -image_width:
@@ -76,7 +83,7 @@ class Game:
             self.x_pos_bg = -50
         self.x_pos_bg -= self.game_speed
 
-        
+    
 
     def show_menu(self):
         death = self.death_count
@@ -120,14 +127,23 @@ class Game:
         self.score += 1
 
         if self.score % 100 == 0 and self.game_speed < 500:
-            self.game_speed += 5
+            self.game_speed += 3
 
     def draw_score(self):
-        font = pygame.font.Font(FONT_STYLE, 30)
-        text = font.render(f'Score {self.score}', True, (0, 0, 0))
-        text_rect = text.get_rect()
-        text_rect.center = (1000, 50)
-        self.screen.blit(text, text_rect)
+        if self.score >= 500:
+            font = pygame.font.Font(FONT_STYLE, 30)
+            text = font.render(f'Score {self.score}', True, (255, 255, 255))
+            text_rect = text.get_rect()
+            text_rect.center = (1000, 50)
+            self.screen.blit(text, text_rect)
+        else:
+            font = pygame.font.Font(FONT_STYLE, 30)
+            text = font.render(f'Score {self.score}', True, (0, 0, 0))
+            text_rect = text.get_rect()
+            text_rect.center = (1000, 50)
+            self.screen.blit(text, text_rect)
+
+
         
         
             
