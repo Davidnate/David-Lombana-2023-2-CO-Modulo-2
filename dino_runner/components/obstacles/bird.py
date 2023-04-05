@@ -5,6 +5,7 @@ from dino_runner.utils.constants import BIRD
 
 class Bird(Obstacle):
     BIRD_ALTITUDE = [230, 270, 320]
+    
     def __init__(self, image):
         self.type = random.randint(0, 1)
         super(). __init__(image, self.type)
@@ -12,7 +13,5 @@ class Bird(Obstacle):
         self.index = 0
 
     def draw(self, screen):
-        if self.index >= 9:
-            self.index = 0
+        self.index = (self.index + 1) % 10
         screen.blit(self.image[self.index // 5], self.rect)
-        self.index += 1
