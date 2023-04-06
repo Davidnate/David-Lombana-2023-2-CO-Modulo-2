@@ -65,12 +65,20 @@ CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 
+
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
+CLOCK = pygame.image.load(os.path.join(IMG_DIR, 'Other/reloj.png'))
+GAME_OVER = pygame.image.load(os.path.join(IMG_DIR, 'Other/GameOver.png'))
+RESET = pygame.image.load(os.path.join(IMG_DIR, 'Other/Reset.png'))
 
 DEFAULT_TYPE = "default"
 
 FONT_STYLE = 'freesansbold.ttf'
 
 SHIELD_TYPE = 'shield'
+
+HEART_TYPE = 'heart'
+
+CLOCK_TYPE = 'clock'

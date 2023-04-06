@@ -12,13 +12,19 @@ class Counter:
 
     def draw(self, screen):
         font = pygame.font.Font(FONT_STYLE, 30)
-        text = font.render(f'Score: {self.count}', True, (0, 0, 0))
+        if self.count >= 600:
+            text_color = (255, 255, 255) 
+        else:
+            text_color = (0, 0, 0)  
+        text = font.render(f'Score: {self.count}', True, text_color)
         text_rect = text.get_rect()
         text_rect.center = (1000, 50)
         screen.blit(text, text_rect)
+        
 
     def reset(self):
         self.count = 0
 
     def set_count(self, value):
         self.count = value
+

@@ -23,10 +23,12 @@ class Menu:
                     game.running = False
                     game.playing = False
                 elif event.type == pygame.KEYDOWN:
+                    if game.death_count.count > 0:
+                        game.life += 1
                     game.run()
 
-    def draw(self, screen, message, x = HALF_SCREEN_WIDTH, y = HALF_SCREEN_HEIGHT):
-        text = self.font.render(message, True, (0, 0, 0))
+    def draw(self, screen, message, x = HALF_SCREEN_WIDTH, y = HALF_SCREEN_HEIGHT, color=(0, 0, 0)):
+        text = self.font.render(message, True, color)
         text_rect = text.get_rect()
         text_rect.center = (x, y)
         screen.blit(text, text_rect)
